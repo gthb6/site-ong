@@ -78,7 +78,7 @@ function iniciarTema() {
     aplicarTema(botaoTema, temaSalvo === "escuro" ? "escuro" : "claro");
 
     botaoTema.addEventListener("click", function () {
-        const modoEscuro = document.documentElement.classList.contains("modo-escuro");
+        const modoEscuro = document.documentElement.getAttribute("data-tema") === "escuro";
         const novoTema = modoEscuro ? "claro" : "escuro";
 
         aplicarTema(botaoTema, novoTema);
@@ -91,7 +91,7 @@ function iniciarTema() {
 function aplicarTema(botaoTema, tema) {
     const modoEscuro = tema === "escuro";
 
-    document.documentElement.classList.toggle("modo-escuro", modoEscuro);
+    document.documentElement.setAttribute("data-tema", modoEscuro ? "escuro" : "claro");
 
     botaoTema.textContent = modoEscuro ? "☀️" : "🌙";
 
