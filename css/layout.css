@@ -238,6 +238,10 @@ fieldset textarea {
     border-radius: 2px;
 }
 
+html[data-tema="escuro"] input[type="date"] {
+    color-scheme: dark;
+}
+
 html[data-tema="escuro"] body fieldset input,
 html[data-tema="escuro"] body fieldset select,
 html[data-tema="escuro"] body fieldset textarea {
