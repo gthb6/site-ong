@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Esperança</title>
+
+    <script>
+        if (localStorage.getItem("temaInstituto") === "escuro") {
+            document.documentElement.classList.add("modo-escuro");
+        }
+    </script>
+
+  <link rel="stylesheet" crossorigin href="./assets/layout-Cx_yMhIb.css">
+</head>
+
+<body>
+
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <header>
+
+        <h1>Instituto Esperança</h1>
+
+        <button type="button" class="botao-tema" id="botao-tema" aria-label="Ativar modo escuro">
+            🌙
+        </button>
+
+        <nav aria-label="Navegação principal">
+
+            <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                ☰
+            </button>
+
+            <div class="menu-links" id="menu-principal">
+                <a href="index.html" aria-current="page">Início</a>
+                <a href="projetos.html">Projetos</a>
+                <a href="cadastro.html">Cadastro</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main id="conteudo">
+
+        <section>
+            <h2>Quem somos</h2>
+            <p>O Instituto Esperança é uma organização sem fins lucrativos que promove ações sociais e incentiva a participação voluntária.</p>
+
+            <img src="./assets/logointesp-yJx9hoCv.webp" alt="Imagem gerada por IA. Logo do Instituto Esperança com um coração sendo segurado por duas mãos e o texto 'Ação e Amor - Est. 2026'.">
+            <p>Imagem gerada por IA. Logo do Instituto Esperança com um coração sendo segurado por duas mãos e o texto "Ação e Amor - Est. 2026".</p>
+        </section>
+
+        <section>
+            <h2>Nossa missão</h2>
+            <p>Nossa missão é promover ações solidárias, incentivar o voluntariado e contribuir para uma sociedade mais acolhedora e colaborativa.</p>
+        </section>
+
+        <section>
+            <h2>Entre em contato</h2>
+            <p>Telefone: (41) 90987-6543</p>
+            <p>E-mail: contato@institutoesperanca.org</p>
+            <p>Endereço: Rua da Felicidade, 4321 - Curitiba/PR</p>
+        </section>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <button type="button" class="fechar-toast" id="fechar-toast" aria-label="Fechar notificação">×</button>
+        <strong>Conheça nossos projetos!</strong>
+        <p>Veja como você pode ajudar o Instituto Esperança.</p>
+        <a href="projetos.html">Ver projetos</a>
+    </div>
+
+    <footer>
+        <p>© 2026 Instituto Esperança - Todos os direitos reservados.</p>
+    </footer>
+
+    <script  src="./js/storage.js"></script>
+    <script  src="./js/templates.js"></script>
+    <script  src="./js/ui.js"></script>
+    <script  src="./js/form.js"></script>
+    <script  src="./js/app.js"></script>
+
+</body>
+
+</html>
