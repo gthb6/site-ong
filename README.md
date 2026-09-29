@@ -6,11 +6,11 @@ O site apresenta a ONG, seus projetos e um formulário para cadastro de apoiador
 
 ## Estrutura
 
-- `html/` – páginas do site
-- `css/` – estilos
-- `js/` – funções de interação, formulário e armazenamento
-- `imagens/` – imagens usadas no projeto
-- `dist/` – arquivos gerados pela build do Vite
+* `html/` – páginas
+* `css/` – estilos
+* `js/` – funções de interação, formulário e armazenamento
+* `imagens/` – imagens usadas no projeto
+* `dist/` – arquivos gerados pela build do Vite
 
 ## Como executar
 
@@ -35,10 +35,16 @@ A build é criada na pasta `dist/`.
 
 ## Acessibilidade
 
-Foram adicionados recursos como atalho para pular direto ao conteúdo, navegação identificada, indicação da página atual, foco visível, menu com estado informado para tecnologias assistivas, fechamento do modal com `Esc` e retorno do foco para o botão que abriu a janela. O formulário também possui rótulos associados aos campos e atributos de preenchimento automático.
+Foram adicionados recursos como atalho para pular direto ao conteúdo, navegação identificada, indicação da página atual, foco visível, menu com estado informado para tecnologias assistivas, fechamento do modal com `Esc` e retorno do foco para o botão que abriu a janela.
+
+O formulário também possui rótulos associados aos campos e atributos de preenchimento automático.
 
 ## Git
 
 O projeto usa Git com as branches `main`, `develop` e `feature/acessibilidade`. Os commits seguem o padrão de Conventional Commits.
 
 A primeira versão está marcada com a tag `v1.0.0`.
+
+## Organização das branches
+
+A branch `main` representa a versão principal do projeto. A branch `develop` é usada para reunir as alterações antes de chegarem à versão principal. A branch `feature/acessibilidade` foi criada para desenvolver e organizar as melhorias de acessibilidade do projeto.
