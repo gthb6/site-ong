@@ -6,10 +6,12 @@ function iniciarMenu() {
 
     botaoMenu.addEventListener("click", function () {
         const menuAberto = menu.classList.toggle("ativo");
+
         botaoMenu.setAttribute("aria-expanded", menuAberto ? "true" : "false");
         botaoMenu.setAttribute("aria-label", menuAberto ? "Fechar menu" : "Abrir menu");
     });
 }
+
 
 function iniciarToast() {
     const toast = document.getElementById("toast");
@@ -26,6 +28,7 @@ function iniciarToast() {
     }, 300);
 }
 
+
 function iniciarModal() {
     const modal = document.getElementById("modal");
     const botaoAbrir = document.getElementById("abrir-modal");
@@ -37,7 +40,10 @@ function iniciarModal() {
 
     function fecharModal() {
         modal.classList.remove("ativo");
-        if (elementoAnterior) elementoAnterior.focus();
+
+        if (elementoAnterior) {
+            elementoAnterior.focus();
+        }
     }
 
     botaoAbrir.addEventListener("click", function () {
@@ -49,7 +55,9 @@ function iniciarModal() {
     botaoFechar.addEventListener("click", fecharModal);
 
     modal.addEventListener("click", function (evento) {
-        if (evento.target === modal) fecharModal();
+        if (evento.target === modal) {
+            fecharModal();
+        }
     });
 
     document.addEventListener("keydown", function (evento) {
@@ -57,4 +65,38 @@ function iniciarModal() {
             fecharModal();
         }
     });
+}
+
+
+function iniciarTema() {
+    const botaoTema = document.getElementById("botao-tema");
+
+    if (!botaoTema) return;
+
+    const temaSalvo = localStorage.getItem("temaInstituto");
+
+    aplicarTema(botaoTema, temaSalvo === "escuro" ? "escuro" : "claro");
+
+    botaoTema.addEventListener("click", function () {
+        const modoEscuro = document.documentElement.classList.contains("modo-escuro");
+        const novoTema = modoEscuro ? "claro" : "escuro";
+
+        aplicarTema(botaoTema, novoTema);
+
+        localStorage.setItem("temaInstituto", novoTema);
+    });
+}
+
+
+function aplicarTema(botaoTema, tema) {
+    const modoEscuro = tema === "escuro";
+
+    document.documentElement.classList.toggle("modo-escuro", modoEscuro);
+
+    botaoTema.textContent = modoEscuro ? "☀️" : "🌙";
+
+    botaoTema.setAttribute(
+        "aria-label",
+        modoEscuro ? "Ativar modo claro" : "Ativar modo escuro"
+    );
 }

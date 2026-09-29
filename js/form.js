@@ -1,35 +1,26 @@
 function aplicarMascaraCPF(campo) {
-    let valor = campo.value.replace(/\D/g, "").slice(0, 11);
+    let valor = campo.value.replace(/\D/g, "");
 
-    if (valor.length > 9) {
-        valor = valor.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
-    } else if (valor.length > 6) {
-        valor = valor.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
-    } else if (valor.length > 3) {
-        valor = valor.replace(/(\d{3})(\d{1,3})/, "$1.$2");
-    }
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
 
     campo.value = valor;
 }
 
 function aplicarMascaraTelefone(campo) {
-    let valor = campo.value.replace(/\D/g, "").slice(0, 11);
+    let valor = campo.value.replace(/\D/g, "");
 
-    if (valor.length > 6) {
-        valor = valor.replace(/(\d{2})(\d{5})(\d{1,4})/, "($1) $2-$3");
-    } else if (valor.length > 2) {
-        valor = valor.replace(/(\d{2})(\d{1,5})/, "($1) $2");
-    }
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+    valor = valor.replace(/(\d{5})(\d{1,4})$/, "$1-$2");
 
     campo.value = valor;
 }
 
 function aplicarMascaraCEP(campo) {
-    let valor = campo.value.replace(/\D/g, "").slice(0, 8);
+    let valor = campo.value.replace(/\D/g, "");
 
-    if (valor.length > 5) {
-        valor = valor.replace(/(\d{5})(\d{1,3})/, "$1-$2");
-    }
+    valor = valor.replace(/^(\d{5})(\d)/, "$1-$2");
 
     campo.value = valor;
 }
@@ -37,7 +28,9 @@ function aplicarMascaraCEP(campo) {
 function coletarDados(formulario) {
     const dados = {};
 
-    formulario.querySelectorAll("[name]").forEach(function (campo) {
+    const campos = formulario.querySelectorAll("input, select, textarea");
+
+    campos.forEach(function (campo) {
         dados[campo.name] = campo.value;
     });
 
@@ -45,11 +38,11 @@ function coletarDados(formulario) {
 }
 
 function preencherFormulario(formulario, dados) {
-    Object.keys(dados).forEach(function (nomeCampo) {
-        const campo = formulario.elements[nomeCampo];
+    const campos = formulario.querySelectorAll("input, select, textarea");
 
-        if (campo) {
-            campo.value = dados[nomeCampo];
+    campos.forEach(function (campo) {
+        if (dados[campo.name] !== undefined) {
+            campo.value = dados[campo.name];
         }
     });
 }
@@ -62,6 +55,11 @@ function iniciarFormulario() {
     const cpf = document.getElementById("cpf");
     const telefone = document.getElementById("telefone");
     const cep = document.getElementById("cep");
+    const nascimento = document.getElementById("nascimento");
+
+    const hoje = new Date().toISOString().split("T")[0];
+
+    nascimento.setAttribute("max", hoje);
 
     cpf.addEventListener("input", function () {
         aplicarMascaraCPF(cpf);
@@ -104,7 +102,10 @@ function iniciarFormulario() {
             title: "Cadastro salvo!",
             text: templateMensagemCadastro(),
             icon: "success",
-            confirmButtonText: "OK"
+            confirmButtonText: "OK",
+            customClass: {
+                popup: document.documentElement.classList.contains("modo-escuro") ? "alerta-escuro" : ""
+            }
         }).then(function () {
             formulario.reset();
             removerCadastro();

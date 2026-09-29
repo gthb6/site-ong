@@ -1,15 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Instituto Esperança</title>
     <link rel="stylesheet" href="../css/layout.css">
+
+    <script>
+        if (localStorage.getItem("temaInstituto") === "escuro") {
+            document.documentElement.classList.add("modo-escuro");
+        }
+    </script>
+
 </head>
+
 <body>
+
     <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
 
     <header>
+
         <h1>Instituto Esperança</h1>
 
         <button type="button" class="botao-tema" id="botao-tema" aria-label="Ativar modo escuro">
@@ -17,6 +29,7 @@
         </button>
 
         <nav aria-label="Navegação principal">
+
             <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
                 ☰
             </button>
@@ -26,14 +39,19 @@
                 <a href="projetos.html">Projetos</a>
                 <a href="cadastro.html" aria-current="page">Cadastro</a>
             </div>
+
         </nav>
+
     </header>
 
     <main id="conteudo">
+
         <h2>Cadastro de apoiador</h2>
 
         <form>
+
             <fieldset>
+
                 <legend>Dados pessoais</legend>
 
                 <label for="nome">Nome completo:</label>
@@ -50,9 +68,11 @@
 
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" maxlength="15" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required>
+
             </fieldset>
 
             <fieldset>
+
                 <legend>Endereço</legend>
 
                 <label for="cep">CEP:</label>
@@ -98,9 +118,11 @@
                     <option value="SE">Sergipe</option>
                     <option value="TO">Tocantins</option>
                 </select>
+
             </fieldset>
 
             <fieldset>
+
                 <legend>Como deseja participar?</legend>
 
                 <label for="participacao">Forma de participação:</label>
@@ -113,21 +135,28 @@
 
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+
             </fieldset>
 
             <button type="submit">Enviar cadastro</button>
+
         </form>
+
     </main>
 
     <footer>
+
         <p>© 2026 Instituto Esperança - Todos os direitos reservados.</p>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/storage.js"></script>
-    <script src="../js/templates.js"></script>
-    <script src="../js/ui.js"></script>
-    <script src="../js/form.js"></script>
-    <script src="../js/app.js"></script>
+    <script vite-ignore src="../js/storage.js"></script>
+    <script vite-ignore src="../js/templates.js"></script>
+    <script vite-ignore src="../js/ui.js"></script>
+    <script vite-ignore src="../js/form.js"></script>
+    <script vite-ignore src="../js/app.js"></script>
+
 </body>
+
 </html>

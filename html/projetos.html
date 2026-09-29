@@ -1,15 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - Instituto Esperança</title>
     <link rel="stylesheet" href="../css/layout.css">
+
+    <script>
+        if (localStorage.getItem("temaInstituto") === "escuro") {
+            document.documentElement.classList.add("modo-escuro");
+        }
+    </script>
+
 </head>
+
 <body>
+
     <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
 
     <header>
+
         <h1>Instituto Esperança</h1>
 
         <button type="button" class="botao-tema" id="botao-tema" aria-label="Ativar modo escuro">
@@ -17,6 +29,7 @@
         </button>
 
         <nav aria-label="Navegação principal">
+
             <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
                 ☰
             </button>
@@ -26,13 +39,17 @@
                 <a href="projetos.html" aria-current="page">Projetos</a>
                 <a href="cadastro.html">Cadastro</a>
             </div>
+
         </nav>
+
     </header>
 
     <main id="conteudo">
+
         <h2>Nossos projetos</h2>
 
         <section>
+
             <h2>Campanhas de doação</h2>
             <span class="badge">Doação</span>
 
@@ -41,9 +58,11 @@
 
             <h3>Doação de roupas</h3>
             <p>Recebemos e distribuímos roupas para pessoas e famílias que precisam de apoio.</p>
+
         </section>
 
         <section>
+
             <h2>Trabalho voluntário</h2>
             <span class="badge">Voluntariado</span>
 
@@ -54,10 +73,13 @@
             <p>Imagem gerada por IA. Voluntários do Instituto Esperança organizando caixas de doações de roupas e alimentos não perecíveis em um galpão.</p>
 
             <button type="button" id="abrir-modal">Ver informações</button>
+
         </section>
 
         <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+
             <div class="modal-conteudo">
+
                 <button type="button" class="fechar-modal" id="fechar-modal" aria-label="Fechar janela">×</button>
 
                 <h2 id="titulo-modal">Voluntariado comunitário</h2>
@@ -65,18 +87,25 @@
                 <p>Para participar, basta realizar seu cadastro e selecionar a opção de voluntariado.</p>
 
                 <a class="botao-cadastro" href="cadastro.html">Quero participar</a>
+
             </div>
+
         </div>
+
     </main>
 
     <footer>
+
         <p>© 2026 Instituto Esperança - Todos os direitos reservados.</p>
+
     </footer>
 
-    <script src="../js/storage.js"></script>
-    <script src="../js/templates.js"></script>
-    <script src="../js/ui.js"></script>
-    <script src="../js/form.js"></script>
-    <script src="../js/app.js"></script>
+    <script vite-ignore src="../js/storage.js"></script>
+    <script vite-ignore src="../js/templates.js"></script>
+    <script vite-ignore src="../js/ui.js"></script>
+    <script vite-ignore src="../js/form.js"></script>
+    <script vite-ignore src="../js/app.js"></script>
+
 </body>
+
 </html>
